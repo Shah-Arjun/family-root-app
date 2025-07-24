@@ -4,14 +4,29 @@ const mongoose = require('mongoose');         // ODM for connecting and interact
 const cors = require('cors');                 // Middleware to allow cross-origin requests
 require('dotenv').config();                   // Loads environment variables from a .env file into process.env
 
+
 // Create an instance of Express
 const app = express();
 
 // Middleware setup
-app.use(cors());                              // Allows requests from other domains (e.g., frontend server)
+app.use(cors());                              // Allows requests from other domains (e.g., frontend server) ,, allow frontend to call backend
 app.use(express.json());                      // Parses incoming JSON requests (req.body)
 
-// Default route to test if API is running
+
+app.post('/api/test', (req, res) => {
+  res.json({ message: 'Test POST route works!' });
+});
+
+
+// Import and use API routes
+const familyRoutes = require('./routes/familyRoutes');
+app.use('/api/family', familyRoutes);       // All routes that start with /api/family will use the familyRoutes file. For eg: A GET request to /api/family will be handled by getMembers() from familyController.js.
+
+
+
+
+
+// basic or default route to test if API is running
 app.get('/', (req, res) => {
   res.send('API is working 🚀');              // Response sent on hitting root URL
 });
