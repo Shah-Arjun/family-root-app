@@ -11,6 +11,7 @@ const app = express();
 // Middleware setup
 app.use(cors());                              // Allows requests from other domains (e.g., frontend server) ,, allow frontend to call backend
 app.use(express.json());                      // Parses incoming JSON requests (req.body)
+app.use('/uploads', express.static('uploads')); // ✅ For image loading
 
 
 app.post('/api/test', (req, res) => {

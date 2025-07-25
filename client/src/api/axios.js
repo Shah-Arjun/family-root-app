@@ -5,10 +5,6 @@
 //Axios is a promise-based HTTP client. It helps us make API requests (GET, POST, PUT, DELETE) easily in React or any JavaScript project.
 import axios from 'axios';
 
-const API = axios.create({
-    baseURL: 'http://localhost:5000/api',   //✅ ✅ Change this to your deployed URL later
+export default axios.create({
+  baseURL: 'http://localhost:5000/api', // ✅ matches backend
 });
-
-
-
-export default API;

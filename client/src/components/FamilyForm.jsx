@@ -9,7 +9,7 @@ function FamilyForm({ onAdd }) {
         // setForm is the function to update the form state.
         name: '',
         relation: '',
-        side: 'Parental',  //default value
+        side: 'Paternal',  //default value
     });
 
 
@@ -31,7 +31,7 @@ function FamilyForm({ onAdd }) {
     const handleSubmit = async (e) => {
         e.preventdefault();
         await onAdd(form);
-        setForm({ name: '', relation: '', side: 'Parental' });
+        setForm({ name: '', relation: '', side: 'Paternal' });
         ;
     }
 
@@ -69,7 +69,7 @@ function FamilyForm({ onAdd }) {
                 onChange={handleChange}
                 className='w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400'
             >
-                <option value="Parental">Parental</option>
+                <option value="Paternnal">Paternal</option>
                 <option value="Maternal">Maternal</option>
             </select>
 
