@@ -1,7 +1,4 @@
-// ===========================================
-// 📁 File: server.js
-// ✅ Main entry point for backend API server
-// ===========================================
+// Main entry point for backend API server
 
 // Import required modules
 const express = require('express');           // Framework for creating the server and handling routes
@@ -25,7 +22,6 @@ app.post('/api/test', (req, res) => {
 // ✅ Import and use main API routes
 const familyRoutes = require('./routes/familyRoutes');
 
-// 🛠️ Change this:
 // app.use('/api/family', familyRoutes);
 
 // ✅ Fix this to match your frontend axios requests:
@@ -53,4 +49,4 @@ mongoose.connect(process.env.MONGO_URI, {
   // ✅ Start the Express server
   app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 })
-.catch(err => console.log('❌ MongoDB Connection Error:', err)); // Log any MongoDB connection error
+.catch(err => console.log('❌ MongoDB Connection Error:', err)); // show/Log any MongoDB connection error
