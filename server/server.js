@@ -34,7 +34,7 @@ app.use('/api/members', familyRoutes);
 
 // ✅ Root route to test if API is running
 app.get('/', (req, res) => {
-  res.send('API is working  🚀');
+  res.send('API is working 🚀');
 });
 
 // ✅ Define the server port (use from .env or default to 5000)
