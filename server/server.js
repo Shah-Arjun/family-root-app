@@ -3,16 +3,18 @@
 // Import required modules
 const express = require('express');           // Framework for creating the server and handling routes
 const mongoose = require('mongoose');         // ODM for connecting and interacting with MongoDB
-const cors = require('cors');                 // Middleware to allow cross-origin requests
+const cors = require('cors');                 // Middleware to allow cross-origin requests ,This middleware is essential when you're dealing with requests from a frontend (like React) that is hosted on a different origin (port/domain) than your backend server.
 require('dotenv').config();                   // Loads environment variables from a .env file into process.env
 
 // Create an instance of Express
 const app = express();
 
 // ✅ Middleware setup
-app.use(cors());                              // Allows requests from other domains (e.g., frontend server)
-app.use(express.json());                      // Parses incoming JSON requests (req.body)
-app.use('/uploads', express.static('uploads'));// To serve static files like uploaded images
+app.use(cors());                              // Allows requests from other domains (e.g., frontend server) ,This allows your backend to accept requests from a different origin (e.g., React app running on localhost:3000).
+app.use(express.json());                      // Parses incoming JSON requests (req.body), Populates req.body with the parsed data., this is middleware for json
+app.use('/uploads', express.static('uploads'));// To serve static files like uploaded images, Makes everything inside the uploads/ folder accessible via the /uploads route. For example: If you have a file uploads/profile.jpg, it can be accessed at http://localhost:5000/uploads/profile.jpg.
+
+
 
 // ✅ Test Route: Check API connection
 app.post('/api/test', (req, res) => {
